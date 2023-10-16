@@ -21,7 +21,7 @@ public class LineaEnsamblaje {
         size = bufferSize;
     }
 
-    public void colocarComponente(int componente) {
+    public synchronized void  colocarComponente(int componente) {
         lock.lock();
         try {
             while (count == size) {
@@ -41,7 +41,7 @@ public class LineaEnsamblaje {
         }
     }
 
-    public int retirarComponente() {
+    public synchronized int retirarComponente() {
         lock.lock();
         try {
             while (count == 0) {
@@ -58,5 +58,9 @@ public class LineaEnsamblaje {
         } finally {
             lock.unlock();
         }
+    }
+
+    public int[] getBuffer() {
+        return buffer;
     }
 }

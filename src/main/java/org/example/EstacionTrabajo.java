@@ -5,6 +5,8 @@ package org.example;
 import java.util.Random;
 
 public class EstacionTrabajo implements Runnable {
+    private SimulacionObserver observador;
+
     private String nombre;
     private Bolas bolas;
     private LineaEnsamblaje lineaEnsamblaje;
@@ -12,12 +14,13 @@ public class EstacionTrabajo implements Runnable {
 
     private volatile  boolean detener = false;
 
-    public EstacionTrabajo(String nombre, Bolas bolas, LineaEnsamblaje lineaEnsamblaje) {
+    public EstacionTrabajo(String nombre, Bolas bolas, LineaEnsamblaje lineaEnsamblaje, SimulacionObserver observador) {
         this.nombre = nombre;
         this.bolas = bolas;
         this.lineaEnsamblaje = lineaEnsamblaje;
         this.detener = false;
         this.generador = new Random();
+        this.observador = observador;
     }
 
     @Override

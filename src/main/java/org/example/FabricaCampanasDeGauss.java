@@ -17,7 +17,7 @@ public class FabricaCampanasDeGauss {
 
         // Inicializa y asigna trabajos a las estaciones de trabajo
         for (int i = 0; i < estaciones.length; i++) {
-            estaciones[i] = new EstacionTrabajo("Estacion " + i, bolas, lineaEnsamblaje);
+            estaciones[i] = new EstacionTrabajo("Estacion " + i, bolas, lineaEnsamblaje, null);
             executor.execute(estaciones[i]);
         }
 
